@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+nav {
+    padding: 0.5rem;
+    background-color: aquamarine;
+}
+nav ul {
+    display: flex;
+    gap: 1rem;
+}
+li {
+    list-style-type: none;
+}
+a {
+    padding:  0.5rem;
+    background-color: aqua;
+    color: white;
+    text-decoration: none;
+}
+main {
+    padding: 1rem;;
+}
+
+input {
+    padding: 0.5rem;
+    border: 1px solid red;
+}
+button {
+    padding: 0.5rem;
+    border-radius: 3px;
+    background-color: yellow;
+    color: rgb(99, 18, 18);
+    outline: none;
+    border:none;
+}
+.active {
+    color: yellow
+}
