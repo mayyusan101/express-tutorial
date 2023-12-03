@@ -18,9 +18,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
 // template engine
-app.engine('hbs', engine({ defaultLayout: 'main-layout', extname: 'hbs'}));
+// app.engine('hbs', engine({ defaultLayout: 'main-layout', extname: 'hbs'}));
 
-app.set("view engine", "hbs");
+app.set("view engine", "ejs");
 app.set("views", "views");
 
 
@@ -30,7 +30,7 @@ app.use(shopRoutes);
 
 // 404
 app.use((req, res, next) => {
-    res.status(404).render('404', { pageTitle: '404', productCSS: true });
+    res.status(404).render('404', { pageTitle: '404', productCSS: true, path:'/404' });
 });
 
 
