@@ -1,8 +1,36 @@
 <header>
     <nav>
         <ul>
-            <li><a href="/" class="<% if(path === '/'){ %>active<% } %>">My Product</a></li>
-            <li><a href="./admin/add-product" class="<% if(path === '/admin/add-product'){ %>active<% } %>">Add Products</a></li>
+            <li>
+                <a href="/" class="<% if(path === '/'){ %>active<% } %>">
+                    Shop
+                </a>
+            </li>
+            <li>
+                <a href="/products" class="<% if(path === '/products'){ %>active<% } %>">
+                    Products
+                </a>
+            </li>
+            <li>
+                <a href="/orders" class="<% if(path === '/orders'){ %>active<% } %>">
+                    Orders
+                </a>
+            </li>
+            <li>
+                <a href="/cart" class="<% if(path === '/cart'){ %>active<% } %>">
+                    Cart
+                </a>
+            </li>
+            <li>
+                <a href="/admin/add-product" class="<% if(path === '/admin/add-product'){ %>active<% } %>">
+                    Add Products
+                </a>
+            </li>
+            <li>
+                <a href="/admin/products" class="<% if(path === '/admin/products'){ %>active<% } %>">
+                    Admin Products
+                </a>
+            </li>
         </ul>
     </nav>
 </header>

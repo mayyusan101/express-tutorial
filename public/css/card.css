@@ -1,0 +1,34 @@
+.card__container{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    padding: 0.5rem;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+.card_title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.card img{
+    max-height: 200px;
+    margin-bottom: 0.5rem;
+}
+.card_price {
+    text-align: center;
+    color: #3b3b3b;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0;
+}
+.card__desc {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}

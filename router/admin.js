@@ -1,26 +1,19 @@
 const express = require("express");
 const router = express.Router();
 
-const path = require("path");
-const rootDir = require('../util/path.js');
+const adminController = require('../controller/admin.js');
 
-router.get((req, res, next) => {
-    console.log('router(mini express app) validation for this instance');
-    next();
-});
+router.get('/add-product', adminController.getAddProduct);
 
-router.get('/add-product', (req, res, next) => {
-    // res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
-    res.render('add-product', { pageTitle: 'Add-Product', path: '/admin/add-product', activeAddProduct: true, addProductCSS: true });
-});
+router.post('/add-product', adminController.postAddProduct);
 
-let products = []
-router.post('/add-product', (req, res, next) => {
-    products.push({ title: req.body.title });
-    res.redirect('/');
-    // res.render('shop');
+router.get('/edit-product/:productId', adminController.getEditProduct);
 
-});
+router.post('/edit-product', adminController.postEditProduct);
 
-module.exports.routes = router;
-module.exports.products = products;
+router.get('/delete-product/:productId', adminController.getDeleteProduct);
+
+// admin/products => GET
+router.get('/products', adminController.getProducts);
+
+module.exports = router;

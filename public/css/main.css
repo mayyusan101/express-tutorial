@@ -22,19 +22,28 @@ a {
 main {
     padding: 1rem;;
 }
-
-input {
-    padding: 0.5rem;
-    border: 1px solid red;
+.active {
+    color: red;
 }
-button {
+/*=== button ===*/
+.btn__primary {
     padding: 0.5rem;
     border-radius: 3px;
-    background-color: yellow;
-    color: rgb(99, 18, 18);
+    background-color: aquamarine;
     outline: none;
-    border:none;
+    border: 1px solid aqua;
+    cursor: pointer;
 }
-.active {
-    color: red
+.btn__primary:hover {
+    background-color: aqua;
+    color: white;
+}
+.card__actions {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap:5px
+}
+.card__actions a {
+    color: #000;
 }

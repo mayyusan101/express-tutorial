@@ -1,0 +1,21 @@
+.form__container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.form__container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form__control {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.form__control input {
+    padding: 0.5rem;
+    border: 1px solid rgb(12, 10, 10);
+}
