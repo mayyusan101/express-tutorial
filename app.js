@@ -4,6 +4,17 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
+// database
+const db = require('./util/database.js');
+
+db.execute('SELECT * FROM products')
+    .then(result => {
+        console.log(result);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
 // routes
 const adminRoutes = require('./router/admin.js');
 const shopRoutes = require('./router/shop.js');

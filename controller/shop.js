@@ -15,13 +15,16 @@ const getProducts = (req, res, next) => {
 }
 
 const getIndex = (req, res, next) => {
-    Product.fetchAll(products => {
+    Product.fetchAll()
+    .then(([rows, fieldData]) => {
         res.render('shop/index', { 
-            products, 
+            products: rows, 
             pageTitle: 'Shop', 
             path: '/', 
         });
-    });
+    })
+    .catch(err => console.log(err));
+    
 }
 const getCart = (req, res, next) => {
 
@@ -62,13 +65,15 @@ const getOrders = (req, res, next) => {
 }
 const getProduct = (req, res, next) => {
     const id = req.params.productId;
-    Product.findProductByID(id, product => {
+    Product.findProductByID(id)
+    .then(([product]) => {
         res.render('shop/product-details', { 
-            product,
+            product: product[0],
             pageTitle: 'Details', 
             path: '/details', 
         });
-    });
+    })
+    .catch(err => console.log(err));
 }
 
 // add product to cart item

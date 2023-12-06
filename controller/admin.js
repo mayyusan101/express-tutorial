@@ -18,8 +18,10 @@ const postAddProduct = (req, res, next) => {
         desc: req.body.desc,
     }
     const product = new Product(data);
-    product.save();
-    res.redirect('/');
+    product.save()
+    .then(() => res.redirect('/'))
+    .catch(err => console.log(err));
+    
 }
 
 
