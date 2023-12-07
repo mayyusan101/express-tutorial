@@ -1,0 +1,19 @@
+.cart__container1{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 auto;
+
+}
+.cart__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: beige;
+}
+.order__btn{
+    margin-top: 1rem;
+    align-self: flex-end;
+}
