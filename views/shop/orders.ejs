@@ -7,17 +7,18 @@
         <% if(orders.length > 0) { %>
             <ul class="order__container1">
                 <% orders.forEach(order => { %>
-                    <li class="order__item">
-                        <h1>#<%= order.id %></h1>
-                        <ul>
-                            <% order.Products.forEach(p => { %>
-                                <li>
-                                    <p>Title - <%= p.title %></p>
-                                    <p>Quantity - <%= p.OrderItem.qty %></p>
+                    <li >
+                        <h1>#<%= order._id %></h1>
+                        <ul class="item__container">
+                            <% order.items.forEach((p, index) => { %>
+                                <li class="order__item">
+                                    <p><span class="order__index"><%= index+1 %>.</span>Title - <%= p.title %></p>
+                                    <p>Quantity - <%= p.quantity %></p>
                                 </li> 
                             <% }) %>
                         </ul>
                     </li>
+                    <hr />
                 <% }) %>
                 
             </ul>

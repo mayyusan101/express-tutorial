@@ -1,8 +1,31 @@
-const { Sequelize }  = require("sequelize");
+const { MongoClient } = require("mongodb");
 
-const sequelize = new Sequelize('node_shop', 'root', 'mayyusan', {
-    host: 'localhost',
-    dialect: 'mysql'
-});
+const url =
+  "mongodb+srv://mayyusan:kbODXCsIy6MSE6GH@cluster11.bqjomji.mongodb.net/?retryWrites=true&w=majority";
 
-module.exports = sequelize;
+// db
+let _db;
+
+const mongoConnect = async () => {
+  // Connect to your Atlas cluster
+  const client = new MongoClient(url);
+  try {
+    const result = await client.connect();
+    _db = client.db("shop");
+    return result;
+  } catch (err) {
+    console.log(err.stack);
+  } 
+};
+
+const getDB = () => {
+  if (_db) {
+    return _db;
+  }
+  throw "No database found!";
+};
+
+module.exports = {
+  mongoConnect,
+  getDB,
+};

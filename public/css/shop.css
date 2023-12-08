@@ -17,3 +17,20 @@
     margin-top: 1rem;
     align-self: flex-end;
 }
+.item__container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+.order__item{
+    background-color: blanchedalmond;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.order__index{
+    font-weight: 600;
+    font-size: large;
+}

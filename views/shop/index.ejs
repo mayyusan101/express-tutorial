@@ -13,9 +13,9 @@
                         <div class="card_title"><%= p.title %></div>
                         <img src="<%=p.imageUrl%>" alt="" class="card_image">
                         <p class="card_price">$<%= p.price %></p>
-                        <p class="card__desc"><%= p.description %></p>
+                        <p class="card__desc"><%= p.desc %></p>
                         <div class="card__actions">
-                            <a href="/product/<%= p.id %>" class="btn__primary">Details</a>
+                            <a href="/product/<%= p._id %>" class="btn__primary">Details</a>
                             <%- include('../includes/add-to-cart.ejs', {product: p}) %>
                         </div>
                     </div>
