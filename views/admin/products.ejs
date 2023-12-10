@@ -13,7 +13,7 @@
                         <div class="card_title"><%= p.title %></div>
                         <img src="<%= p.imageUrl %>" alt="" class="card_image">
                         <p class="card_price">$<%= p.price %></p>
-                        <p class="card__desc"><%= p.desc %></p>
+                        <p class="card__desc"><%= p.description %></p>
                         <div class="card__actions">
                             <a href="/admin/edit-product/<%= p._id %>?edit=true" class="btn__primary">Edit</a>
                             <a href="/admin/delete-product/<%= p._id %>" class="btn__primary">Delete</a>

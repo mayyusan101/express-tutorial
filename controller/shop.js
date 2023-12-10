@@ -1,12 +1,15 @@
 const Product = require("../models/product.js");
+const Order = require("../models/order.js");
 
 // all products
 const getProducts = async (req, res, next) => {
   try {
-    const products = await Product.fetchAll();
-    res.render("shop/product-lists", {
+    const products = await Product.find()
+      .select("title price imageUrl description")
+      .populate("userId", "name email -_id");
+    res.render("shop/index", {
       products,
-      pageTitle: "Shop",
+      pageTitle: "Products",
       path: "/products",
     });
   } catch (err) {
@@ -16,10 +19,12 @@ const getProducts = async (req, res, next) => {
 
 const getIndex = async (req, res, next) => {
   try {
-    const products = await Product.fetchAll();
+    const products = await Product.find()
+      .select("title price imageUrl description")
+      .populate("userId", "name email -_id");
     res.render("shop/index", {
-      products: products,
       pageTitle: "Shop",
+      products: products,
       path: "/",
     });
   } catch (err) {
@@ -44,7 +49,8 @@ const getProduct = async (req, res, next) => {
 // Cart
 const getCart = async (req, res, next) => {
   try {
-    const products = await req.user.getCart();
+    const user = await req.user.populate("cart.items.productId");
+    const products = user.cart.items;
     res.render("shop/cart", {
       products: products,
       pageTitle: "Cart",
@@ -63,14 +69,13 @@ const postCart = async (req, res, next) => {
 // delete cart item
 const postCartDeleteProduct = async (req, res, next) => {
   const productId = req.body.productId;
-  console.log('product id', productId);
   await req.user.deleteItemFromCart(productId);
   res.redirect("/cart");
 };
 
 // Orders
 const getOrders = async (req, res, next) => {
-  const orders = await req.user.getOrders();
+  const orders = await Order.find({ "user.userId": req.user._id });
   res.render("shop/orders", {
     orders,
     pageTitle: "Orders",
@@ -80,6 +85,7 @@ const getOrders = async (req, res, next) => {
 
 const postOrders = async (req, res, next) => {
   await req.user.addOrder();
+  await req.user.clearCart();
   res.redirect("/cart");
 };
 
@@ -93,7 +99,6 @@ const getCheckout = (req, res, next) => {
     });
   });
 };
-
 
 module.exports = {
   getProducts,
